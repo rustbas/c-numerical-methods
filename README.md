@@ -1,2 +1,2 @@
 # c-numerical-methods
-Some numerical methods on C.
+Some numeric methods on C.
