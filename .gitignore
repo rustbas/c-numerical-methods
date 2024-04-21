@@ -58,4 +58,4 @@ dkms.conf
 *.csv
 
 # main file with tests
-main.c
+./main.c
