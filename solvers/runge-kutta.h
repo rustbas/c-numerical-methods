@@ -2,7 +2,7 @@
 float** runge_kutta(unsigned M, 
         unsigned N, 
         float* t, 
-        float* (*dxdt)(float*, float, unsigned),
+        void (*dxdt)(float*, float, unsigned, float*),
         float* X0) 
 {
     float** result = (float**) malloc(sizeof(float*) * N);
@@ -14,10 +14,10 @@ float** runge_kutta(unsigned M,
         result[0][i] = X0[i];
     }
 
-    float* k1;//= (float*) malloc(sizeof(float) * M);
-    float* k2;//= (float*) malloc(sizeof(float) * M);
-    float* k3;//= (float*) malloc(sizeof(float) * M);
-    float* k4;//= (float*) malloc(sizeof(float) * M);
+    float* k1 = (float*) malloc(sizeof(float) * M);
+    float* k2 = (float*) malloc(sizeof(float) * M);
+    float* k3 = (float*) malloc(sizeof(float) * M);
+    float* k4 = (float*) malloc(sizeof(float) * M);
 
     float* tmp = (float*) malloc(sizeof(float) * M);
 
@@ -30,22 +30,25 @@ float** runge_kutta(unsigned M,
         for (int j=0; j<M; j++) {
             tmp[j] = result[i-1][j];
         }
-        k1 =dxdt(tmp, t[i-1], M);
+        dxdt(tmp, t[i-1], M, k1);
+
         // k_2
         for (int j=0; j<M; j++) {
-            tmp[i] = result[i-1][j] + h/2.0f*k1[j];
+            tmp[j] = result[i-1][j] + h/2.0f*k1[j];
         }
-        k2 =dxdt(tmp, t[i-1] + h/2.0, M);
+        dxdt(tmp, t[i-1] + h/2.0, M, k2);
+
         // k_3
         for (int j=0; j<M; j++) {
-            tmp[i] = result[i-1][j] + h/2.0f*k2[j];
+            tmp[j] = result[i-1][j] + h/2.0f*k2[j];
         }
-        k3 =dxdt(tmp, t[i-1] + h/2.0, M);
+        dxdt(tmp, t[i-1] + h/2.0, M, k3);
+
         // k_4
         for (int j=0; j<M; j++) {
-            tmp[i] = result[i-1][j] + h*k3[j];
+            tmp[j] = result[i-1][j] + h*k3[j];
         }
-        k4 =dxdt(tmp, t[i-1] + h, M);
+        dxdt(tmp, t[i-1] + h, M, k4);
 
 
         // compute result[i][j]
