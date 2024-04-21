@@ -56,3 +56,6 @@ dkms.conf
 
 # datafiles
 *.csv
+
+# main file with tests
+main.c
