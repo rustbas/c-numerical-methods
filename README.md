@@ -4,7 +4,7 @@ Some numeric methods on C.
 # integrate
 
 Integration functions with following syntax: 
-```
+```c
 float integrate(float a, float b, unsigned N, float (*f)(float))
 ```
 where:
