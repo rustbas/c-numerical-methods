@@ -12,6 +12,8 @@ Some numeric methods in C.
 
 ## Integration
 
+### Interface
+
 Integration functions with following syntax: 
 ```c
 float integrate(float a, float b, unsigned N, float (*f)(float))
@@ -25,6 +27,11 @@ where:
 These funtions return float number. 
 
 **N.B.**: don't forget to `free` result.
+
+### List of methods
+
+- [Rectange method](https://en.wikipedia.org/wiki/Riemann_sum)
+- [Trapezoids method](https://en.wikipedia.org/wiki/Trapezoidal_rule)
 
 ## Solvers
 
