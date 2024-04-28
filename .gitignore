@@ -59,3 +59,6 @@ dkms.conf
 
 # main file with tests
 main.c
+
+# object folder
+./obj/*.o
