@@ -1,5 +1,5 @@
 # c-numerical-methods
-Some numeric methods on C.
+Some numeric methods in C.
 
 # Usage
 
