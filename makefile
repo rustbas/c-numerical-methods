@@ -1,5 +1,4 @@
 all: simple-methods runge-kutta simple
-	gcc main.c -o main.out -lm -g3 -Lobj/ -lrunge-kutta -lsimple
 
 simple-methods: 
 	gcc -O3 src/integrate/simple-methods.c -o obj/libsimple-methods.so -c
