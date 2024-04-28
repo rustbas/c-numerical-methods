@@ -8,7 +8,9 @@ Some numeric methods on C.
     1. Add object directory with `-L/path/to/obj`
     2. Link with library. For `libname.so` you need add parameter `-lname`.
 
-# Integration
+# Description
+
+## Integration
 
 Integration functions with following syntax: 
 ```c
@@ -20,7 +22,33 @@ where:
 - `N` -- number of points;
 - `*f` -- pointer to float function with `f(float x)` syntax.
 
-These funtions return pointer to float array. **N.B.**: don't forget to `free` result.
+These funtions return float number. 
+
+**N.B.**: don't forget to `free` result.
+
+## Solvers
+
+Here will be functions that solve ordinary differential equations. 
+
+Syntax:
+```c
+float **solve(unsigned M, unsigned N, float *t,
+                    float *(*dxdt)(float *, float, unsigned), float *X0);
+```
+where:
+
+- `M` -- number of equations in system;
+- `N` -- number of points to integrate
+- `*t` -- pointer to time array size of `N`
+- `*(*dxdt)(float, *float, unsigned)` --  pointer to function that compute **dX**:
+    - first argument is pointer to array of **X**;
+    - second argument is `t`;
+    - third argument is `M`;
+- `*X0` -- pointer to array of initial conditions size of `M`.
+
+These funtions return pointer to float array size of `N`x`M`. 
+
+**N.B.**: don't forget to `free` result.
 
 # TODO
 
