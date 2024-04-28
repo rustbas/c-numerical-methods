@@ -16,6 +16,6 @@ where:
 # TODO
 
 1. [x] Include all libs with inclusions guards;
-2. [ ] Fix k\_i;
+2. [x] Fix k\_i;
 3. [ ] Create `makefile`;
 4. [ ] Create `*.c` files with function;
