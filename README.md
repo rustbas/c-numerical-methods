@@ -1,7 +1,7 @@
 # c-numerical-methods
 Some numeric methods on C.
 
-# integrate
+# Integration
 
 Integration functions with following syntax: 
 ```c
