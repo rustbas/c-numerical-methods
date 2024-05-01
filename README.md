@@ -3,7 +3,12 @@ Some numeric methods in C.
 
 # Usage
 
-This is Single-file header-only libraries. To work with you just need to `#define FLAG` and `#include` them. 
+This is Single-file header-only libraries. 
+General usage:
+```c
+#define FLAG_IMPLEMENTATION
+#include "/path/to/file.h"
+```
 
 List of flags you can find on the corresponding page.
 
