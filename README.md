@@ -3,10 +3,9 @@ Some numeric methods in C.
 
 # Usage
 
-1. You need to compile libraries. Just run `make` in root directory.
-2. To link with them:
-    1. Add object directory with `-L/path/to/obj`
-    2. Link with library. For `libname.so` you need add parameter `-lname`.
+This is Single-file header-only libraries. To work with you just need to `#define FLAG` and `#include` them. 
+
+List of flags you can find on the corresponding page.
 
 # Description
 
