@@ -59,7 +59,4 @@ These funtions return pointer to float array size of `N`x`M`.
 
 # TODO
 
-1. [x] Include all libs with inclusions guards;
-2. [x] Fix k\_i;
-3. [x] Create `makefile`;
-4. [x] Create `*.c` files with function;
+1. [ ] Think about `IMPLEMENTATION`-flags.
