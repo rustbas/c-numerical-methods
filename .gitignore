@@ -64,4 +64,4 @@ main.c
 ./obj/*.o
 
 # build-script
-./build.sh
+build.sh
