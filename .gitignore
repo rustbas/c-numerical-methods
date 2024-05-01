@@ -62,3 +62,6 @@ main.c
 
 # object folder
 ./obj/*.o
+
+# build-script
+./build.sh
