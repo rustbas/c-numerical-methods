@@ -64,3 +64,4 @@ These funtions return pointer to float array size of `N`x`M`.
 # TODO
 
 1. [ ] Think about `IMPLEMENTATION`-flags.
+2. [x] Test
