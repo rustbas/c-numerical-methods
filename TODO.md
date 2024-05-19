@@ -1,4 +1,4 @@
 # TODO
 
-1. [ ] Think about `IMPLEMENTATION`-flags.
-2. [ ] Add tests
+1. [x] Think about `IMPLEMENTATION`-flags.
+2. [x] Add tests
