@@ -17,11 +17,11 @@
 #include <stdlib.h>
 #endif
 
-float squares(float a, float b, unsigned N, float (*f)(float));
-float trapecia(float a, float b, unsigned N, float (*f)(float));
+float squaresf(float a, float b, unsigned N, float (*f)(float));
+float trapeciaf(float a, float b, unsigned N, float (*f)(float));
 
-double squaresd(double a, double b, unsigned N, double (*f)(double));
-double trapeciad(double a, double b, unsigned N, double (*f)(double));
+double squares(double a, double b, unsigned N, double (*f)(double));
+double trapecia(double a, double b, unsigned N, double (*f)(double));
 #endif
 
 // ----------------------------------------
@@ -30,9 +30,7 @@ double trapeciad(double a, double b, unsigned N, double (*f)(double));
 
 #ifdef INTEGRATE_SM_IMPLEMENTATION
 
-// TODO: Create `double` versions
-
-float squares(float a, float b, unsigned N, float (*f)(float)) {
+float squaresf(float a, float b, unsigned N, float (*f)(float)) {
   float h = (b - a) / (N - 1);
   float result = 0.0;
   float *xs = (float *)malloc(sizeof(float) * N);
@@ -51,7 +49,7 @@ float squares(float a, float b, unsigned N, float (*f)(float)) {
   return result;
 }
 
-float trapecia(float a, float b, unsigned N, float (*f)(float)) {
+float trapeciaf(float a, float b, unsigned N, float (*f)(float)) {
   float h = (b - a) / (N - 1);
   float result = 0.0;
 
@@ -70,7 +68,7 @@ float trapecia(float a, float b, unsigned N, float (*f)(float)) {
   return result;
 }
 
-double squaresd(double a, double b, unsigned N, double (*f)(double)) {
+double squares(double a, double b, unsigned N, double (*f)(double)) {
   double h = (b - a) / (N - 1);
   double result = 0.0;
   double *xs = (double *)malloc(sizeof(double) * N);
@@ -89,7 +87,7 @@ double squaresd(double a, double b, unsigned N, double (*f)(double)) {
   return result;
 }
 
-double trapeciad(double a, double b, unsigned N, double (*f)(double)) {
+double trapecia(double a, double b, unsigned N, double (*f)(double)) {
   double h = (b - a) / (N - 1);
   double result = 0.0;
 
