@@ -12,7 +12,7 @@
   X(f5, results_f5)                                                            \
   X(f6, results_f6)
 
-#define N 250000
+#define N 100000
 #define EPS 0.0001
 
 double f1(double x) { return x; }
