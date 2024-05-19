@@ -17,8 +17,6 @@
 #include <stdlib.h>
 #endif
 
-#include <stdio.h>
-
 float squares(float a, float b, unsigned N, float (*f)(float));
 float trapecia(float a, float b, unsigned N, float (*f)(float));
 #endif
