@@ -83,8 +83,8 @@ int main() {
 
   for (i = 0; i < num_limits; i++) {
 #define X(f, results_f)                                                        \
-  I_est_sq = squaresd(limits_a[i], limits_b[i], N, f);                         \
-  I_est_tr = trapeciad(limits_a[i], limits_b[i], N, f);                        \
+  I_est_sq = squares(limits_a[i], limits_b[i], N, f);                          \
+  I_est_tr = trapecia(limits_a[i], limits_b[i], N, f);                         \
   I_true = results_f[i];                                                       \
   ct_assert_float(I_est_sq, I_true, EPS);                                      \
   ct_assert_float(I_est_tr, I_true, EPS);
