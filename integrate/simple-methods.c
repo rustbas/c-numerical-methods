@@ -12,6 +12,11 @@
 #include <math.h>
 #endif
 
+#ifndef STDLIB_H
+#define STDLIB_H
+#include <stdlib.h>
+#endif
+
 float squares(float a, float b, unsigned N, float (*f)(float));
 float trapecia(float a, float b, unsigned N, float (*f)(float));
 #endif
@@ -24,26 +29,40 @@ float trapecia(float a, float b, unsigned N, float (*f)(float));
 // TODO: Add dirty hack
 // TODO: Fix error accumulation
 float squares(float a, float b, unsigned N, float (*f)(float)) {
-  float h = (b - a) / N;
+  float h = (b - a) / (N - 1);
   float result = 0.0;
-
-  while (a < b) {
-    result += h * f(a + h / 2);
-    a += h;
+  float *xs = (float *)malloc(sizeof(float) * N);
+  int i;
+  for (i = 0; i < N; i++) {
+    xs[i] = a + h * i;
   }
+
+  for (i = 0; i < N - 1; i++) {
+    // result += (xs[i] - xs[i - 1]) * f((xs[i] + xs[i - 1]) / 2);
+    result += h * f((xs[i] + xs[i + 1]) / 2);
+  }
+
+  free(xs);
 
   return result;
 }
 
 float trapecia(float a, float b, unsigned N, float (*f)(float)) {
-  float h = (b - a) / N;
+  float h = (b - a) / (N - 1);
   float result = 0.0;
 
-  while (a < b) {
-    result += h * (f(a) + f(a + h)) / 2;
-    a += h;
+  float *xs = (float *)malloc(sizeof(float) * N);
+  int i;
+  for (i = 0; i < N; i++) {
+    xs[i] = a + h * i;
   }
 
+  for (i = 0; i < N - 1; i++) {
+    // result += (xs[i] - xs[i - 1]) * f((xs[i] + xs[i - 1]) / 2);
+    result += h * (f(xs[i]) + f(xs[i + 1])) / 2.0f;
+  }
+
+  free(xs);
   return result;
 }
 
