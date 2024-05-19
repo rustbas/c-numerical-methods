@@ -26,8 +26,6 @@ float trapecia(float a, float b, unsigned N, float (*f)(float));
 // ----------------------------------------
 
 #ifdef INTEGRATE_SM_IMPLEMENTATION
-// TODO: Add dirty hack
-// TODO: Fix error accumulation
 float squares(float a, float b, unsigned N, float (*f)(float)) {
   float h = (b - a) / (N - 1);
   float result = 0.0;
