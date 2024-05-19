@@ -20,7 +20,10 @@
 #include <stdio.h>
 
 float old_squares(float a, float b, unsigned N, float (*f)(float));
-float trapecia(float a, float b, unsigned N, float (*f)(float));
+float new_squares(float a, float b, unsigned N, float (*f)(float));
+
+float old_trapecia(float a, float b, unsigned N, float (*f)(float));
+float new_trapecia(float a, float b, unsigned N, float (*f)(float));
 #endif
 
 // ----------------------------------------
@@ -60,7 +63,7 @@ float new_squares(float a, float b, unsigned N, float (*f)(float)) {
   return result;
 }
 
-float trapecia(float a, float b, unsigned N, float (*f)(float)) {
+float old_trapecia(float a, float b, unsigned N, float (*f)(float)) {
   float h = (b - a) / N;
   float result = 0.0;
 
@@ -69,6 +72,25 @@ float trapecia(float a, float b, unsigned N, float (*f)(float)) {
     a += h;
   }
 
+  return result;
+}
+
+float new_trapecia(float a, float b, unsigned N, float (*f)(float)) {
+  float h = (b - a) / (N - 1);
+  float result = 0.0;
+
+  float *xs = (float *)malloc(sizeof(float) * N);
+  int i;
+  for (i = 0; i < N; i++) {
+    xs[i] = a + h * i;
+  }
+
+  for (i = 0; i < N - 1; i++) {
+    // result += (xs[i] - xs[i - 1]) * f((xs[i] + xs[i - 1]) / 2);
+    result += h * (f(xs[i]) + f(xs[i + 1])) / 2.0f;
+  }
+
+  free(xs);
   return result;
 }
 
