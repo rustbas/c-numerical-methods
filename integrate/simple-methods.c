@@ -19,11 +19,8 @@
 
 #include <stdio.h>
 
-float old_squares(float a, float b, unsigned N, float (*f)(float));
-float new_squares(float a, float b, unsigned N, float (*f)(float));
-
-float old_trapecia(float a, float b, unsigned N, float (*f)(float));
-float new_trapecia(float a, float b, unsigned N, float (*f)(float));
+float squares(float a, float b, unsigned N, float (*f)(float));
+float trapecia(float a, float b, unsigned N, float (*f)(float));
 #endif
 
 // ----------------------------------------
@@ -31,20 +28,8 @@ float new_trapecia(float a, float b, unsigned N, float (*f)(float));
 // ----------------------------------------
 
 #ifdef INTEGRATE_SM_IMPLEMENTATION
-// TODO: Fix error accumulation
-float old_squares(float a, float b, unsigned N, float (*f)(float)) {
-  float h = (b - a) / N;
-  float result = 0.0;
 
-  while (a < b) {
-    result += h * f(a + h / 2);
-    a += h;
-  }
-
-  return result;
-}
-
-float new_squares(float a, float b, unsigned N, float (*f)(float)) {
+float squares(float a, float b, unsigned N, float (*f)(float)) {
   float h = (b - a) / (N - 1);
   float result = 0.0;
   float *xs = (float *)malloc(sizeof(float) * N);
@@ -63,19 +48,7 @@ float new_squares(float a, float b, unsigned N, float (*f)(float)) {
   return result;
 }
 
-float old_trapecia(float a, float b, unsigned N, float (*f)(float)) {
-  float h = (b - a) / N;
-  float result = 0.0;
-
-  while (a < b) {
-    result += h * (f(a) + f(a + h)) / 2;
-    a += h;
-  }
-
-  return result;
-}
-
-float new_trapecia(float a, float b, unsigned N, float (*f)(float)) {
+float trapecia(float a, float b, unsigned N, float (*f)(float)) {
   float h = (b - a) / (N - 1);
   float result = 0.0;
 
