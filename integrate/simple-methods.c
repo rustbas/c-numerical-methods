@@ -1,6 +1,12 @@
 #ifndef _INTEGRATE_SIMPLE_METHODS
 #define _INTEGRATE_SIMPLE_METHODS
 
+// Dirty hack
+#ifndef INTEGRATE_SM_IMPLEMENTATION
+#define INTEGRATE_SM_IMPLEMENTATION
+#define _INTEGRATE_SM_IMPLEMENTATION
+#endif
+
 #ifndef MATH_H
 #define MATH_H
 #include <math.h>
@@ -41,4 +47,9 @@ float trapecia(float a, float b, unsigned N, float (*f)(float)) {
   return result;
 }
 
+#endif
+
+#ifdef _INTEGRATE_SM_IMPLEMENTATION
+#undef INTEGRATE_SM_IMPLEMENTATION
+#undef _INTEGRATE_SM_IMPLEMENTATION
 #endif
