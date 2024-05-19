@@ -19,11 +19,7 @@
 
 #include <stdio.h>
 
-<<<<<<< HEAD
-float old_squares(float a, float b, unsigned N, float (*f)(float));
-=======
 float squares(float a, float b, unsigned N, float (*f)(float));
->>>>>>> little-benchmark
 float trapecia(float a, float b, unsigned N, float (*f)(float));
 #endif
 
@@ -32,29 +28,7 @@ float trapecia(float a, float b, unsigned N, float (*f)(float));
 // ----------------------------------------
 
 #ifdef INTEGRATE_SM_IMPLEMENTATION
-<<<<<<< HEAD
-<<<<<<< Updated upstream:integrate/simple-methods.h
 float squares(float a, float b, unsigned N, float (*f)(float)) {
-=======
-// TODO: Fix error accumulation
-float old_squares(float a, float b, unsigned N, float (*f)(float)) {
->>>>>>> Stashed changes:integrate/simple-methods.c
-  float h = (b - a) / N;
-  float result = 0.0;
-
-  while (a < b) {
-    result += h * f(a + h / 2);
-    a += h;
-  }
-
-  return result;
-}
-
-float new_squares(float a, float b, unsigned N, float (*f)(float)) {
-=======
-
-float squares(float a, float b, unsigned N, float (*f)(float)) {
->>>>>>> little-benchmark
   float h = (b - a) / (N - 1);
   float result = 0.0;
   float *xs = (float *)malloc(sizeof(float) * N);
@@ -74,16 +48,6 @@ float squares(float a, float b, unsigned N, float (*f)(float)) {
 }
 
 float trapecia(float a, float b, unsigned N, float (*f)(float)) {
-<<<<<<< HEAD
-  float h = (b - a) / N;
-  float result = 0.0;
-
-  while (a < b) {
-    result += h * (f(a) + f(a + h)) / 2;
-    a += h;
-  }
-
-=======
   float h = (b - a) / (N - 1);
   float result = 0.0;
 
@@ -99,16 +63,12 @@ float trapecia(float a, float b, unsigned N, float (*f)(float)) {
   }
 
   free(xs);
->>>>>>> little-benchmark
   return result;
 }
 
 #endif
-<<<<<<< HEAD
 
 #ifdef _INTEGRATE_SM_IMPLEMENTATION
 #undef INTEGRATE_SM_IMPLEMENTATION
 #undef _INTEGRATE_SM_IMPLEMENTATION
 #endif
-=======
->>>>>>> little-benchmark
