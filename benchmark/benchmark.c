@@ -4,7 +4,7 @@
 
 #define MAX_N 25000
 
-#if 1
+#if 0
 #define STREAM result_file
 #else
 #define STREAM stdout
@@ -26,11 +26,9 @@ int main() {
 
   fprintf(STREAM, "N,old_method_error,new_method_error\n");
   for (i = 2; i < MAX_N; i++) {
-    result1 = old_squares(a, b, i, fun);
-    result2 = new_squares(a, b, i, fun);
-    result3 = old_trapecia(a, b, i, fun);
-    result4 = new_trapecia(a, b, i, fun);
-    fprintf(STREAM, "%d,%f,%f\n", i, fabs(result3 - true_I),
+    result2 = squares(a, b, i, fun);
+    result4 = trapecia(a, b, i, fun);
+    fprintf(STREAM, "%d,%f,%f\n", i, fabs(result2 - true_I),
             fabs(result4 - true_I));
   }
 
