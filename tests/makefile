@@ -3,4 +3,4 @@ tests: test_integrate
 	@./test_integrate.out
 
 test_integrate:
-	@cc integrate.c -o test_integrate.out 
+	@cc integrate.c -o test_integrate.out -lm
